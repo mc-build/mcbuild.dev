@@ -7,7 +7,7 @@ export default {
   args: {
     color: "red",
   },
-  argargTypes: {
+  argTypes: {
     variant: {
       color: {
         type: "color",
