@@ -3,12 +3,18 @@ module.exports = {
     "../ui/components/**/*.stories.mdx",
     "../ui/components/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "@storybook/addon-postcss",
+  ],
   webpackFinal: async (baseConfig) => {
     const nextConfig = require("../next.config.js");
     // Needed for SVG importing using svgr
+    debugger;
     const indexOfRuleToRemove = baseConfig.module.rules.findIndex((rule) =>
-      rule.test.toString().includes("svg")
+      rule.test?.toString().includes("svg")
     );
     baseConfig.module.rules.splice(indexOfRuleToRemove, 1, {
       test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
