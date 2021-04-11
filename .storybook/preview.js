@@ -25,8 +25,8 @@ Object.defineProperty(nextImage, "default", {
           style={{
             objectFit: "cover",
             position: "absolute",
-            width: "100%",
-            height: "100%",
+            width: `${width}px`,
+            height: `${height}px`,
           }}
           {...props}
         />
