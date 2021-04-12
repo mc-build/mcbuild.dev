@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-
+import styles from "./McBuildVersion.module.less";
 export interface IMcBuildVersionProps {
   prefix?: string;
 }
 let mcb_version = null;
-export function McBuildVersion({ prefix = "" }: IMcBuildVersionProps) {
+export function McBuildVersion({ prefix = "v" }: IMcBuildVersionProps) {
   const [displayVersion, setDisplayVersion] = useState(null);
   useEffect(() => {
     if (mcb_version === null) {
@@ -21,7 +21,7 @@ export function McBuildVersion({ prefix = "" }: IMcBuildVersionProps) {
     }
   }, []);
   return (
-    <span>
+    <span className={styles.version}>
       {prefix}
       {displayVersion}
     </span>

@@ -1,0 +1,62 @@
+.light {
+  --color: var(--dark-500);
+  > label {
+    > .knob {
+      left: 0px;
+    }
+  }
+}
+.mix {
+  --color: var(--zinc);
+  > label {
+    > .knob {
+      left: 11.5px;
+    }
+  }
+}
+.dark {
+  --color: var(--purple-400);
+  > label {
+    > .knob {
+      left: 23px;
+    }
+  }
+}
+.themeSelect {
+  cursor: grab;
+  user-select: none;
+  > input {
+    display: none;
+  }
+  > label {
+    transition-property: background-color;
+    transition: 0.3s;
+    background-color: var(--color);
+    width: 44px;
+    height: 21px;
+    border-radius: 12px;
+    border: 1px solid #dbd7d6;
+    position: absolute;
+    > .knob {
+      width: 19px;
+      height: 19px;
+      background: #f9f9f9;
+      filter: drop-shadow(0px 0px 3px var(--color));
+      border-radius: 11px;
+      border: 1px solid var(--color);
+      position: absolute;
+      transition: 0.3s;
+      transition-property: left border;
+    }
+    > .content {
+      pointer-events: none;
+      position: absolute;
+      width: 42px;
+      height: 21px;
+      display: flex;
+      justify-content: space-between;
+      top: -1px;
+      left: 3px;
+    }
+  }
+}
