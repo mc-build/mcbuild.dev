@@ -35,16 +35,6 @@ import { ${name} } from "./${name}";
 export default {
   title: "mc-build/${name}",
   component: ${name},
-  args: {
-    color: "red",
-  },
-  argTypes: {
-    variant: {
-      color: {
-        type: "color",
-      },
-    },
-  },
 };
 export const ${name}Story = (props) => <${name} {...props}></${name}>;
 `
