@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-const names = new Map();
+let names = new Map();
 export function useUniqueValue(name: string = "unknown"): string {
   const value = useRef<string>("");
   if (value.current === "") {
@@ -13,3 +13,4 @@ export function useUniqueValue(name: string = "unknown"): string {
   }
   return value.current;
 }
+useUniqueValue.reset = () => (names = new Map());

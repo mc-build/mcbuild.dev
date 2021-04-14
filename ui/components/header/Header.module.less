@@ -1,0 +1,71 @@
+.header {
+  width: 100%;
+  height: 56px;
+  background-color: var(--light-400);
+  transition: 1s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .nav {
+    flex-grow: 1;
+    display: flex;
+    // padding-left: 8px;
+    flex: 1 1 0px;
+    .link {
+      text-decoration: none;
+      margin-left: 24px;
+      .selected.navItem {
+        color: #a6a3aa;
+
+        > .img {
+          filter: grayscale();
+        }
+      }
+      .navItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 6px 8px;
+        font-family: "Noto Sans";
+        font-weight: normal;
+        font-size: 10px;
+        text-align: center;
+        color: var(--accent-green);
+
+        transition-property: color;
+        > .img {
+          transition: 0.3s;
+          transition-property: filter;
+        }
+
+        > p {
+          margin: 2px 0px 0px 0px;
+        }
+      }
+    }
+  }
+  .logo {
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    flex: 1 1 0px;
+  }
+  .darkMode {
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    justify-content: flex-end;
+    > .wrapper {
+      margin: auto 48px auto 0px;
+    }
+    @media (max-width: 320px) {
+      > .wrapper {
+        margin: auto 16px auto 0px;
+      }
+    }
+    flex: 1 1 0px;
+  }
+}

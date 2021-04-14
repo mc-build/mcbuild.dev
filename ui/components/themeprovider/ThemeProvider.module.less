@@ -1,0 +1,33 @@
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));
+  > div:nth-child(@{counter}) {
+    z-index: -1100 + (100 * @counter);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.shadow {
+  .loop(10);
+}
+@keyframes reveal {
+  // 0% {
+  //   clip-path: circle(0px at 100% 28px);
+  // }
+  // 10% {
+  //   clip-path: circle(100px at 100% 28px);
+  // }
+  // 100% {
+  //   clip-path: circle(200% at 100% 28px);
+  // }
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 56px, 0% 56px);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+.transition {
+  animation: reveal cubic-bezier(1, 0, 0, 1) 1s;
+}

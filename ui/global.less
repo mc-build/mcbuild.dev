@@ -24,32 +24,90 @@
 @red: #d16969;
 @gray: #dbd7d6;
 @gold: #ecb95a;
+:global {
+  .root {
+    --slate-800: @slate-800;
+    --slate-700: @slate-700;
+    --slate-600: @slate-600;
+    --slate-500: @slate-500;
+    --blue-600: @blue-600;
+    --blue-400: @blue-400;
+    --black: @black;
+    --dark-800: @dark-800;
+    --dark-700: @dark-700;
+    --dark-600: @dark-600;
+    --dark-500: @dark-500;
+    --light-500: @light-500;
+    --light-400: @light-400;
+    --white: @white;
+    --night: @night;
+    --purple-500: @purple-500;
+    --purple-400: @purple-400;
+    --blue-500: @blue-500;
+    --green-500: @green-500;
+    --green-400: @green-400;
+    --teal: @teal;
+    --pink: @pink;
+    --zinc: @zinc;
+    --red: @red;
+    --gray: @gray;
+    --gold: @gold;
 
-body {
-  --slate-800: @slate-800;
-  --slate-700: @slate-700;
-  --slate-600: @slate-600;
-  --slate-500: @slate-500;
-  --blue-600: @blue-600;
-  --blue-400: @blue-400;
-  --black: @black;
-  --dark-800: @dark-800;
-  --dark-700: @dark-700;
-  --dark-600: @dark-600;
-  --dark-500: @dark-500;
-  --light-500: @light-500;
-  --light-400: @light-400;
-  --white: @white;
-  --night: @night;
-  --purple-500: @purple-500;
-  --purple-400: @purple-400;
-  --blue-500: @blue-500;
-  --green-500: @green-500;
-  --green-400: @green-400;
-  --teal: @teal;
-  --pink: @pink;
-  --zinc: @zinc;
-  --red: @red;
-  --gray: @gray;
-  --gold: @gold;
+    --_slate-800: @slate-800;
+    --_slate-700: @slate-700;
+    --_slate-600: @slate-600;
+    --_slate-500: @slate-500;
+    --_blue-600: @blue-600;
+    --_blue-400: @blue-400;
+    --_black: @black;
+    --_dark-800: @dark-800;
+    --_dark-700: @dark-700;
+    --_dark-600: @dark-600;
+    --_dark-500: @dark-500;
+    --_light-500: @light-500;
+    --_light-400: @light-400;
+    --_white: @white;
+    --_night: @night;
+    --_purple-500: @purple-500;
+    --_purple-400: @purple-400;
+    --_blue-500: @blue-500;
+    --_green-500: @green-500;
+    --_green-400: @green-400;
+    --_teal: @teal;
+    --_pink: @pink;
+    --_zinc: @zinc;
+    --_red: @red;
+    --_gray: @gray;
+    --_gold: @gold;
+
+    --accent-blue: @blue-600;
+    --accent-green: @green-500;
+    --accent-black: @black;
+    --text: @black;
+
+    background-color: var(--white);
+    color: var(--text);
+  }
+  .root.theme-dark {
+    --gray: @dark-800;
+    --light-500: @dark-600;
+    --light-400: @dark-600;
+    --white: @dark-500;
+
+    --accent-blue: @gold;
+    --accent-green: @green-400;
+    --accent-black: @white;
+    --color: @white;
+  }
+  .root.theme-mix {
+    --gray: @slate-800;
+    --light-500: @slate-700;
+    --light-400: @slate-600;
+    --white: @slate-500;
+
+    --accent-blue: @gold;
+    --accent-green: @green-400;
+    --accent-black: @white;
+    --color: @white;
+  }
 }

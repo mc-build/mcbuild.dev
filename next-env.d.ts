@@ -8,3 +8,11 @@ declare module "*.png" {
   const url: string;
   export default url;
 }
+
+declare module "*.svg" {
+  const svgrComponent: React.FC<{
+    width?: number;
+    height?: number;
+  }>;
+  export default svgrComponent;
+}

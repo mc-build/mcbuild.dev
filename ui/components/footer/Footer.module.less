@@ -1,0 +1,84 @@
+.footer {
+  background-color: var(--light-400);
+  padding: 32px;
+  color: var(--color);
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .left {
+      .mcbLogo {
+        border-radius: 2px;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0px 8px;
+        .text {
+          font-family: "Noto Sans";
+          font-weight: bold;
+          font-size: 24px;
+          letter-spacing: 0.06em;
+          text-align: left;
+          color: var(--color);
+          margin: 8px;
+        }
+        .logo {
+          width: 33px;
+          height: 33px;
+        }
+      }
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      vertical-align: middle;
+      .wrapper {
+        display: flex;
+        div {
+          a {
+            font-family: "Noto Sans";
+            font-weight: bold;
+            font-size: 14px;
+            text-align: left;
+            color: var(--color);
+            text-decoration: none;
+          }
+          margin: auto 16px;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      vertical-align: middle;
+      .version {
+        margin: auto 16px auto 16px;
+        // margin-right: 16px;
+      }
+      .link {
+        margin: auto 0;
+        > a {
+          display: block;
+        }
+      }
+    }
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Noto Sans";
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    .discord {
+      a {
+        text-decoration: none;
+        color: var(--blue-500);
+      }
+    }
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--accent-black);
+  }
+}

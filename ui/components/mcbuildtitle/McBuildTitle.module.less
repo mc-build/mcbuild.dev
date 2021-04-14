@@ -1,13 +1,14 @@
 @import "../../global.less";
 .title {
-  &.dark{
-    
-  }
   height: 30px;
-  border: 1px solid var(--green-500);
+  background: var(--light-500);
+  user-select: none;
+  &.outline {
+    border: 1px solid var(--accent-green);
+  }
   border-radius: 2px;
   display: inline-flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 0px 8px;
   .text {
@@ -15,7 +16,7 @@
     font-weight: bold;
     font-size: 10px;
     text-align: left;
-    color: var(--black);
+    color: var(--color);
   }
   .logo {
     width: 20px;

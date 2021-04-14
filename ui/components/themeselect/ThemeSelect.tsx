@@ -1,34 +1,28 @@
 import classnames from "classnames";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useUniqueValue } from "../../hooks/useUniqueValue";
 import styles from "./ThemeSelect.module.less";
-export enum ThemeTypes {
-  LIGHT,
-  MIX,
-  DARK,
-}
+import { ThemeContext, ThemeTypes } from "../themeprovider/ThemeProvider";
 const classLookup = {
   [ThemeTypes.LIGHT]: styles.light,
   [ThemeTypes.MIX]: styles.mix,
   [ThemeTypes.DARK]: styles.dark,
 };
-export interface IThemeSelectProps {
-  mode: ThemeTypes;
-  onModeChange(theme: ThemeTypes): void;
-}
+export interface IThemeSelectProps {}
 
-export function ThemeSelect({ mode, onModeChange }: IThemeSelectProps) {
+export function ThemeSelect() {
+  const theme = useContext(ThemeContext);
   const [selectedMode, setSelectedMode] = useState<ThemeTypes>(
-    mode || ThemeTypes.MIX
+    theme.theme || ThemeTypes.LIGHT
   );
   const ids = Array.from({ length: 3 }, (_, index) =>
     useUniqueValue(`theme-select-${ThemeTypes[index]}`)
   );
   useEffect(() => {
-    if (mode != selectedMode) {
-      onModeChange(selectedMode);
+    if (selectedMode !== theme.theme) {
+      setSelectedMode(theme.theme);
     }
-  }, [selectedMode, mode]);
+  }, [selectedMode, theme.theme]);
   return (
     <div className={classnames(classLookup[selectedMode], styles.themeSelect)}>
       {ids.map((id, index) => (
@@ -43,15 +37,17 @@ export function ThemeSelect({ mode, onModeChange }: IThemeSelectProps) {
       ))}
       <label
         onClick={() => {
-          setSelectedMode(((selectedMode + 1) % 3) as ThemeTypes);
+          theme.setTheme(((selectedMode + 1) % 3) as ThemeTypes);
         }}
         htmlFor={ids[(selectedMode + 1) % 3]}
       >
-        <div className={styles.content}>
-          <div>🌛</div>
-          <div>🌞</div>
+        <div>
+          <div className={styles.content}>
+            <div>🌛</div>
+            <div>🌞</div>
+          </div>
+          <div className={styles.knob}></div>
         </div>
-        <div className={styles.knob}></div>
       </label>
     </div>
   );

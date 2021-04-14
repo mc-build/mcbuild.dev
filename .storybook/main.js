@@ -8,6 +8,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/addon-postcss",
+    "storybook-addon-themes",
   ],
   webpackFinal: async (baseConfig) => {
     const nextConfig = require("../next.config.js");
