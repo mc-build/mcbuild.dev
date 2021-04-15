@@ -3,6 +3,7 @@ export * from "./components/footer/Footer";
 export * from "./components/header/Header";
 export * from "./components/layout/Layout";
 export * from "./components/mcbuildtitle/McBuildTitle";
+export * from "./components/mcbuildupdates/McBuildUpdates";
 export * from "./components/mcbuildversion/McBuildVersion";
 export * from "./components/themeprovider/ThemeProvider";
 export * from "./components/themeselect/ThemeSelect";
