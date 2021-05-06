@@ -4,26 +4,15 @@
   text-align: left;
   letter-spacing: 0.06em;
   display: flex;
-  // > .permLink {
-  //   opacity: 1;
-  //   transition: 0.3s;
-  //   display: inline-block;
-  //   justify-content: center;
-  //   align-items: center;
-  //   > div {
-  //     width: 27px;
-  //     position: relative;
-  //     transform: translateY(50%);
-  //     > svg {
-  //       position: absolute;
-  //       top: 0px;
-  //       left: 0px;
-  //     }
-  //   }
   > .permLink {
+    opacity: 0;
+    transition: 0.3s;
     align-items: center;
     column-gap: 0.5rem;
     display: flex;
+    position: relative;
+    left: -32px;
+    margin-right: -32px;
     > svg {
       align-items: center;
       display: flex;
@@ -72,4 +61,7 @@
 }
 .a:extend(.p) {
   color: var(--blue-500);
+}
+.hr {
+  width: calc(100% - 50px);
 }

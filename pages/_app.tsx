@@ -23,9 +23,9 @@ const asHeader = (Type: string) => {
   const Component: { (props: any): JSX.Element; type: string } = asMD(Type);
   const AsHeader = (props) => {
     const content = props.children.toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-    const permLink = content;
+    const permLink = Type.substr(1) + "-" + content;
     return (
-      <section id={permLink}>
+      <section id={permLink} title={props.children}>
         <Component>
           <a href={"#" + permLink} className={MDStyles.permLink}>
             <svg
@@ -34,6 +34,7 @@ const asHeader = (Type: string) => {
               viewBox="0 0 27 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              data-title="TREZY, svg does not have a 'title' prop"
             >
               <path
                 fillRule="evenodd"
@@ -94,7 +95,6 @@ function MyApp({ Component, pageProps, cookie }) {
     </MDXProvider>
   );
 }
-console.log(React);
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
   let res = {
