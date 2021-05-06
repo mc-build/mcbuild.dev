@@ -16,3 +16,10 @@ declare module "*.svg" {
   }>;
   export default svgrComponent;
 }
+
+declare module "*.mdx" {
+  const mdxComponents: React.FC<{
+    [key: string]: any;
+  }>;
+  export default mdxComponents;
+}

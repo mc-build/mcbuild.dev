@@ -10,7 +10,7 @@ const classLookup = {
 };
 export interface IThemeSelectProps {}
 
-export function ThemeSelect() {
+export function ThemeSelect(_props: IThemeSelectProps) {
   const theme = useContext(ThemeContext);
   const [selectedMode, setSelectedMode] = useState<ThemeTypes>(
     theme.theme || ThemeTypes.LIGHT

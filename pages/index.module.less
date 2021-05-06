@@ -1,0 +1,75 @@
+.content {
+  background-color: var(--slate-500);
+  display: grid;
+  > div {
+    height: 100%;
+  }
+}
+.container {
+  height: max-content;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  .info {
+    width: 870px;
+    background-color: var(--white);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    .col {
+      margin-left: 25%;
+      align-self: center;
+      max-width: 364px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .buttons {
+        display: flex;
+        justify-content: center;
+        div {
+          padding: 5px;
+        }
+      }
+      h1 {
+        font-family: "Noto Sans";
+        font-weight: bold;
+        font-size: 64px;
+        letter-spacing: 0.06em;
+        text-align: center;
+        color: var(--color);
+      }
+      h3 {
+        font-family: "Noto Sans";
+        font-weight: normal;
+        font-size: 24px;
+        text-align: left;
+        color: var(--accent-green2);
+      }
+      p.concept {
+        font-family: "Noto Sans";
+        font-weight: bold;
+        font-size: 16px;
+        text-align: left;
+        color: var(--accent-night);
+      }
+      p.description {
+        font-family: "Noto Sans";
+        font-weight: normal;
+        font-size: 16px;
+        text-align: left;
+        color: var(--color);
+      }
+    }
+    .transition {
+      height: 100%;
+      svg {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .logo {
+    margin: auto;
+  }
+}

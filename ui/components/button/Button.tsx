@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import styles from "./Button.module.less";
 export enum ButtonType {
   EMPTY,
@@ -12,16 +12,19 @@ const ButtonTypeClasses = {
 export interface IButtonProps {
   type?: ButtonType;
   className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export function Button({
   children,
   type = ButtonType.FULL,
   className,
+  onClick,
 }: React.PropsWithChildren<IButtonProps>) {
   return (
     <button
       className={classnames(className, styles.button, ButtonTypeClasses[type])}
+      onClick={onClick}
     >
       {children}
     </button>

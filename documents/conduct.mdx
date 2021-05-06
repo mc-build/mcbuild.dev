@@ -1,0 +1,420 @@
+export const Meta = {
+  tags: ["a", "b", "c", "d", "e", "f"],
+};
+
+# Markdown: Syntax
+
+- [Overview](#overview)
+  - [Philosophy](#philosophy)
+  - [Inline HTML](#html)
+  - [Automatic Escaping for Special Characters](#autoescape)
+- [Block Elements](#block)
+  - [Paragraphs and Line Breaks](#p)
+  - [Headers](#header)
+  - [Blockquotes](#blockquote)
+  - [Lists](#list)
+  - [Code Blocks](#precode)
+  - [Horizontal Rules](#hr)
+- [Span Elements](#span)
+  - [Links](#link)
+  - [Emphasis](#em)
+  - [Code](#code)
+  - [Images](#img)
+- [Miscellaneous](#misc)
+  - [Backslash Escapes](#backslash)
+  - [Automatic Links](#autolink)
+
+**Note:** This document is itself written using Markdown; you
+can [see the source for it by adding '.text' to the URL](/projects/markdown/syntax.text).
+
+---
+
+## Overview
+
+### Philosophy
+
+Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+
+Readability, however, is emphasized above all else. A Markdown-formatted
+document should be publishable as-is, as plain text, without looking
+like it's been marked up with tags or formatting instructions. While
+Markdown's syntax has been influenced by several existing text-to-HTML
+filters -- including [Setext](http://docutils.sourceforge.net/mirror/setext.html), [atx](http://www.aaronsw.com/2002/atx/), [Textile](http://textism.com/tools/textile/), [reStructuredText](http://docutils.sourceforge.net/rst.html),
+[Grutatext](http://www.triptico.com/software/grutatxt.html), and [EtText](http://ettext.taint.org/doc/) -- the single biggest source of
+inspiration for Markdown's syntax is the format of plain text email.
+
+## Block Elements
+
+### Paragraphs and Line Breaks
+
+A paragraph is simply one or more consecutive lines of text, separated
+by one or more blank lines. (A blank line is any line that looks like a
+blank line -- a line containing nothing but spaces or tabs is considered
+blank.) Normal paragraphs should not be indented with spaces or tabs.
+
+The implication of the "one or more consecutive lines of text" rule is
+that Markdown supports "hard-wrapped" text paragraphs. This differs
+significantly from most other text-to-HTML formatters (including Movable
+Type's "Convert Line Breaks" option) which translate every line break
+character in a paragraph into a `<br />` tag.
+
+When you _do_ want to insert a `<br />` break tag using Markdown, you
+end a line with two or more spaces, then type return.
+
+### Headers
+
+Markdown supports two styles of headers, [Setext] [1] and [atx] [2].
+
+Optionally, you may "close" atx-style headers. This is purely
+cosmetic -- you can use this if you think it looks better. The
+closing hashes don't even need to match the number of hashes
+used to open the header. (The number of opening hashes
+determines the header level.)
+
+### Blockquotes
+
+Markdown uses email-style `>` characters for blockquoting. If you're
+familiar with quoting passages of text in an email message, then you
+know how to create a blockquote in Markdown. It looks best if you hard
+wrap the text and put a `>` before every line:
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+>
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.
+
+Markdown allows you to be lazy and only put the `>` before the first
+line of a hard-wrapped paragraph:
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.
+
+Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
+adding additional levels of `>`:
+
+> This is the first level of quoting.
+>
+> > This is nested blockquote.
+>
+> Back to the first level.
+
+Blockquotes can contain other Markdown elements, including headers, lists,
+and code blocks:
+
+> ## This is a header.
+>
+> 1.  This is the first list item.
+> 2.  This is the second list item.
+>
+> Here's some example code:
+>
+>     return shell_exec("echo $input | $markdown_script");
+
+Any decent text editor should make email-style quoting easy. For
+example, with BBEdit, you can make a selection and choose Increase
+Quote Level from the Text menu.
+
+### Lists
+
+Markdown supports ordered (numbered) and unordered (bulleted) lists.
+
+Unordered lists use asterisks, pluses, and hyphens -- interchangably
+-- as list markers:
+
+- Red
+- Green
+- Blue
+
+is equivalent to:
+
+- Red
+- Green
+- Blue
+
+and:
+
+- Red
+- Green
+- Blue
+
+Ordered lists use numbers followed by periods:
+
+1.  Bird
+2.  McHale
+3.  Parish
+
+It's important to note that the actual numbers you use to mark the
+list have no effect on the HTML output Markdown produces. The HTML
+Markdown produces from the above list is:
+
+If you instead wrote the list in Markdown like this:
+
+1.  Bird
+1.  McHale
+1.  Parish
+
+or even:
+
+3. Bird
+1. McHale
+1. Parish
+
+you'd get the exact same HTML output. The point is, if you want to,
+you can use ordinal numbers in your ordered Markdown lists, so that
+the numbers in your source match the numbers in your published HTML.
+But if you want to be lazy, you don't have to.
+
+To make lists look nice, you can wrap items with hanging indents:
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+  viverra nec, fringilla in, laoreet vitae, risus.
+- Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+  Suspendisse id sem consectetuer libero luctus adipiscing.
+
+But if you want to be lazy, you don't have to:
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+  viverra nec, fringilla in, laoreet vitae, risus.
+- Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+  Suspendisse id sem consectetuer libero luctus adipiscing.
+
+List items may consist of multiple paragraphs. Each subsequent
+paragraph in a list item must be indented by either 4 spaces
+or one tab:
+
+1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+
+It looks nice if you indent every line of the subsequent
+paragraphs, but here again, Markdown will allow you to be
+lazy:
+
+- This is a list item with two paragraphs.
+
+      This is the second paragraph in the list item. You're
+
+  only required to indent the first line. Lorem ipsum dolor
+  sit amet, consectetuer adipiscing elit.
+
+- Another item in the same list.
+
+To put a blockquote within a list item, the blockquote's `>`
+delimiters need to be indented:
+
+- A list item with a blockquote:
+
+  > This is a blockquote
+  > inside a list item.
+
+To put a code block within a list item, the code block needs
+to be indented _twice_ -- 8 spaces or two tabs:
+
+- A list item with a code block:
+
+      <code goes here>
+
+### Code Blocks
+
+Pre-formatted code blocks are used for writing about programming or
+markup source code. Rather than forming normal paragraphs, the lines
+of a code block are interpreted literally. Markdown wraps a code block
+in both `<pre>` and `<code>` tags.
+
+To produce a code block in Markdown, simply indent every line of the
+block by at least 4 spaces or 1 tab.
+
+This is a normal paragraph:
+
+    This is a code block.
+
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
+
+A code block continues until it reaches a line that is not indented
+(or the end of the article).
+
+Within a code block, ampersands (`&`) and angle brackets (`<` and `>`)
+are automatically converted into HTML entities. This makes it very
+easy to include example HTML source code using Markdown -- just paste
+it and indent it, and Markdown will handle the hassle of encoding the
+ampersands and angle brackets. For example, this:
+
+    <div class="footer">
+        &copy; 2004 Foo Corporation
+    </div>
+
+Regular Markdown syntax is not processed within code blocks. E.g.,
+asterisks are just literal asterisks within a code block. This means
+it's also easy to use Markdown to write about Markdown's own syntax.
+
+```js
+tell application "Foo"
+    beep
+end tell
+```
+
+## Span Elements
+
+### Links
+
+Markdown supports two style of links: _inline_ and _reference_.
+
+In both styles, the link text is delimited by [square brackets].
+
+To create an inline link, use a set of regular parentheses immediately
+after the link text's closing square bracket. Inside the parentheses,
+put the URL where you want the link to point, along with an _optional_
+title for the link, surrounded in quotes. For example:
+
+This is [an example](http://example.com/) inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+### Emphasis
+
+Markdown treats asterisks (`*`) and underscores (`_`) as indicators of
+emphasis. Text wrapped with one `*` or `_` will be wrapped with an
+HTML `<em>` tag; double `*`'s or `_`'s will be wrapped with an HTML
+`<strong>` tag. E.g., this input:
+
+_single asterisks_
+
+_single underscores_
+
+**double asterisks**
+
+**double underscores**
+
+### Code
+
+To indicate a span of code, wrap it with backtick quotes (`` ` ``).
+Unlike a pre-formatted code block, a code span indicates code within a
+normal paragraph. For example:
+
+Use the `printf()` function.
+
+<!-- // import { Logo } from "../ui";
+// export const meta = {};
+
+// <Logo size={100}></Logo>
+
+// # Code of Conduct
+
+// # Discord Rules
+
+// 1. Please refrain from using languages besides English in non bilingual channels.
+// 2. Do not spam, troll or advertise in the server or the DMs of members.
+// 3. Harassment or threats of any kind will not be tolerated.
+// 4. Do not post NSFW content.
+// 5. Use the respective Discord channels correctly, when possible keep all conversations or subjects in their correct Discord channels (see respective Discord channel description for details).
+// 6. Always follow [Discord's TOS](https://discord.com/terms).
+// 7. Staff always have the final decision.
+// 8. Use common sense.
+// 9. Please keep your language clean.
+// 10. Avoid asking the same question in every channel (just wait for a response!).
+// 11. Follow the Code of Conduct.
+
+// _In the interest of keep our communities conflict free we discourage talking about politics and religion and will actively ask you to cease and desist if necessary._
+
+// Please note that these rules can be changed at any time.
+
+// # Code Of Conduct
+
+// ## Our Pledge
+
+// In the interest of fostering an open and welcoming environment, we as owners, contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+
+// ## Our Standards
+
+// Behavior that contributes to creating a positive environment include:
+
+// - Using welcoming and inclusive language[[definition](#inclusive-language)]
+// - Being respectful of differing viewpoints and experiences
+// - Gracefully accepting constructive criticism
+// - Showing empathy towards other community members
+// - No feigning surprise
+// - No well-actually's[[definition](#subtle--isms)]
+// - No subtle -isms[[definition](#subtle--isms)]
+
+// Examples of unacceptable behavior by participants include:
+
+// - The use of sexualized language or imagery and unwelcome sexual attention or advances
+// - Trolling, insulting/derogatory comments, and personal or political attacks
+// - Public or private harassment
+// - Publishing others' private information, such as a physical or electronic address, without explicit permission
+// - Other conduct which could reasonably be considered inappropriate in a professional setting
+
+// ## Our Responsibilities
+
+// Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+
+// Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+
+// ## Scope
+
+// This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+
+// ## Enforcement
+
+// Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting @FetchBot#1225, @SnaveSutit or an Admin . We will respond in a way that it deems appropriate to the circumstances. The staff team is expected to maintain confidentiality with regard to the reporter of an incident to the community or offending party. Further details of specific enforcement policies may be posted separately.
+
+// Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+
+// _The Moderation Team is also subject to these rules and expectations, please feel free to reach out to me personally if you spot any infringement of these rules by the moderation team and I will do my best to take swift action to resolve the infringement._
+
+// ### Punishments
+
+// 1. A private warning and potential removal of message
+//    - This may be repeated.
+// 2. A temporary mute of the offending party(s) on one or more servers under this code of conduct.
+// 3. The offending party(s) being kicked from the server for a period of time.
+// 4. The offending party(s) will be banned.
+
+// ## Definitions
+
+// ### well-actually
+
+// A well-actually happens when someone says something that's almost - but not entirely - correct, and you say, "well, actually…" and then give a minor correction. This is especially annoying when the correction has no bearing on the actual conversation. This doesn't mean we aren't about truth-seeking or that we don't care about being precise. Almost all well-actually's in our experience are about grandstanding, not truth-seeking.
+
+// \*_ from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
+
+// ### subtle -ism
+
+// Subtle -isms are small things that make others feel uncomfortable, things that we all sometimes do by mistake. For example, saying "It's so easy my grandmother could do it" is a subtle -ism. Like the other three social rules, this one is often accidentally broken. Like the other three, it's not a big deal to mess up – you just apologize and move on.
+
+// \*_ from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
+
+// ### inclusive language
+
+// Inclusive language aims to avoid offense and fulfill the ideals of egalitarianism by avoiding expressions that express or imply ideas that are sexist, racist, or otherwise biased, prejudiced, or denigrating to any particular group of people (and sometimes animals as well).
+
+// \*_from [wikipedia](https://en.wikipedia.org/wiki/Inclusive_language)_
+
+// ## Attribution
+
+// This Code of Conduct is from the typescript community Code of Conduct and adapted from the Contributor Covenant, version 1.4, available at http://contributor-covenant.org/version/1/4 as well as the hackandtell Code of Conduct
+
+// hack and tell code of conduct: https://hackandtell.org/#code_of_conduct
+// typescript community code of conduct: https://github.com/typescript-community/governance/blob/master/CODE_OF_CONDUCT.md
+// contributor-covenant homepage: http://contributor-covenant.org
+// contributor-covenant version: http://contributor-covenant.org/version/1/4/
+
+// - see hack and tell COC for the definition (https://hackandtell.org/#code_of_conduct) -->

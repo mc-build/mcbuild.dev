@@ -2,6 +2,7 @@ export * from "./components/button/Button";
 export * from "./components/footer/Footer";
 export * from "./components/header/Header";
 export * from "./components/layout/Layout";
+export * from "./components/logo/Logo";
 export * from "./components/mcbuildtitle/McBuildTitle";
 export * from "./components/mcbuildupdates/McBuildUpdates";
 export * from "./components/mcbuildversion/McBuildVersion";

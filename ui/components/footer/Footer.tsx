@@ -59,7 +59,10 @@ export function Footer() {
       </div>
       <hr />
       <div className={styles.meta}>
-        <div className={styles.copyright}>Copyright © 2020</div>
+        <div className={styles.copyright}>
+          Copyright © 2020, MC-BUILD is not associated with minecraft or mojang
+          in any way.
+        </div>
         <div className={styles.discord}>
           <a href="https://discord.gg/kpGqTDX">Join our Discord</a>
         </div>
