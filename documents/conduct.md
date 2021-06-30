@@ -1,11 +1,3 @@
-export const Meta = {
-  tags: ["a", "b", "c", "d", "e", "f"],
-};
-
-import { Logo } from "../ui";
-export const meta = {};
-
-<Logo size={100} centered></Logo>
 
 # Code of Conduct
 
@@ -85,13 +77,13 @@ _The Moderation Team is also subject to these rules and expectations, please fee
 
 A well-actually happens when someone says something that's almost - but not entirely - correct, and you say, "well, actually…" and then give a minor correction. This is especially annoying when the correction has no bearing on the actual conversation. This doesn't mean we aren't about truth-seeking or that we don't care about being precise. Almost all well-actually's in our experience are about grandstanding, not truth-seeking.
 
-\*_ from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
+\*_from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
 
 #### subtle -ism
 
 Subtle -isms are small things that make others feel uncomfortable, things that we all sometimes do by mistake. For example, saying "It's so easy my grandmother could do it" is a subtle -ism. Like the other three social rules, this one is often accidentally broken. Like the other three, it's not a big deal to mess up – you just apologize and move on.
 
-\*_ from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
+\*_from the [hack & tell](https://hackandtell.org/#code_of_conduct) code of conduct_
 
 #### inclusive language
 

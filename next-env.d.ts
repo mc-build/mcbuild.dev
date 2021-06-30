@@ -17,9 +17,7 @@ declare module "*.svg" {
   export default svgrComponent;
 }
 
-declare module "*.mdx" {
-  const mdxComponents: React.FC<{
-    [key: string]: any;
-  }>;
+declare module "*.md" {
+  const mdxComponents: string;
   export default mdxComponents;
 }

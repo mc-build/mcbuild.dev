@@ -26,7 +26,8 @@
 @red: #d16969;
 @gray: #dbd7d6;
 @gold: #ecb95a;
-:global {
+@search-border:#a6a3aa;
+:global{
   .root {
     --slate-800: @slate-800;
     --slate-700: @slate-700;
@@ -54,7 +55,9 @@
     --red: @red;
     --gray: @gray;
     --gold: @gold;
+    --search-border:@search-border;
 
+    --_seach-border:@search-border;
     --_slate-800: @slate-800;
     --_slate-700: @slate-700;
     --_slate-600: @slate-600;
@@ -92,6 +95,7 @@
 
     background-color: var(--white);
     color: var(--text);
+    font-family: "Noto Sans";
   }
   .root.theme-dark {
     --gray: @dark-800;

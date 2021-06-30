@@ -1,0 +1,16 @@
+.aside {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  > .side:nth-child(2) {
+    background-color: var(--gray);
+    color: var(--text);
+  }
+  > .side:first-child {
+    background-color: var(--white);
+    color: var(--text);
+  }
+}
+.side {
+  width: 100%;
+}

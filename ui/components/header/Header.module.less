@@ -14,6 +14,10 @@
     .link {
       text-decoration: none;
       margin-left: 24px;
+      &.selected{
+        // background-color: var(--_gray);
+        box-shadow: 0 0 10px var(--gray);
+      }
       .selected.navItem {
         color: #a6a3aa;
 
@@ -59,7 +63,7 @@
     align-content: center;
     justify-content: flex-end;
     > .wrapper {
-      margin: auto 48px auto 0px;
+      margin: auto 24px auto 0px;
     }
     @media (max-width: 320px) {
       > .wrapper {

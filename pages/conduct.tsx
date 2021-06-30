@@ -1,9 +1,17 @@
 import Head from "next/head";
 import { Layout } from "../ui";
 import styles from "./conduct.module.less";
-import MDXContent from "../documents/conduct.mdx";
+import MDXContent from "../documents/conduct.md";
+import { MDContent } from "../components/MDContentNav";
+import { Nav } from "../components/Nav";
+import { MD } from "../components/MD";
 export default function Conduct() {
-  const content = <MDXContent></MDXContent>;
+  const content = (
+    <MDContent>
+      <Nav></Nav>
+      <MD>{MDXContent}</MD>
+    </MDContent>
+  );
   return (
     <>
       <Head>

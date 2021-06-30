@@ -1,0 +1,25 @@
+.headers {
+  position: fixed;
+  font-size: 12px;
+  top: 64px;
+  right: 64px;
+  font-weight: 400;
+  .item {
+    color: var(--color);
+    margin: 0px;
+    font-size: 12px;
+    line-height: 16px;
+    > a {
+      padding-left: 1em;
+      padding-right: 1em;
+      text-decoration: none;
+      color: var(--color);
+    }
+  }
+  .selected > a {
+    background-color: var(--gray);
+    border-radius: 5px;
+    transition: 0.3s;
+    transition-property: background-color;
+  }
+}

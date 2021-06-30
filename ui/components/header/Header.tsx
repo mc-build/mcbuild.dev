@@ -16,12 +16,12 @@ export interface IHeaderProps {
 }
 
 const navItems = [
-  { name: "Home", path: "/", img: Computer },
-  { name: "Docs", path: "/docs", img: Gear },
+  { name: "Home", test: /^\/$/, img: Computer,path:"/" },
+  { name: "Docs", test: /^\/docs/, img: Gear,path:"/docs/home" },
 ];
 export function Header({ page }: IHeaderProps) {
   const isMobile = useMedia("(max-width:320px)");
-  const selected = navItems.findIndex((item) => item.path === page);
+  const selected = navItems.findIndex((item) => item.test.test(page));
   const [selectedIndex, setSelectedIndex] = useState(selected);
   useEffect(() => {
     setSelectedIndex(selected);
@@ -31,11 +31,14 @@ export function Header({ page }: IHeaderProps) {
       <nav className={styles.nav}>
         {navItems.map((item, index) => (
           <Link href={item.path} key={item.path}>
-            <a className={styles.link}>
+            <a className={classnames(
+                  styles.link,
+                  selectedIndex === index && styles.selected
+                )}>
               <div
                 className={classnames(
                   styles.navItem,
-                  selectedIndex === index && styles.selected
+                  selectedIndex !== index && styles.selected
                 )}
               >
                 <div className={styles.img}>
