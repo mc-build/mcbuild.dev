@@ -17,7 +17,7 @@ export default function Home() {
           <div className={styles.info}>
             <div className={styles.col}>
               <h1>MC-BUILD</h1>
-              <h3>A Minecraft datapack build tool!</h3>
+              <h3>A Minecraft Data Pack build tool!</h3>
 
               <p className={styles.concept}>
                 <strong>Familiar Syntax</strong>
